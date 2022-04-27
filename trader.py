@@ -31,7 +31,7 @@ def get_data():
     # Returns a an numpy array of the closing prices of the past 5 minutes
     time_now = datetime.now(tz=UTC)
     time_5_mins = time_now - timedelta(minutes=6)
-    bar_iter = api.get_bars_iter(symb, tradeapi.TimeFrame.Minute, time_5_mins.isoformat(), time_now.isoformat(),limit = 5)
+    bar_iter = api.get_crypto_bars_iter(symb, tradeapi.TimeFrame.Minute, time_5_mins.isoformat(), time_now.isoformat(),limit = 5)
     close_list = []
     for bar in bar_iter:
         close_list.append(bar.c)
@@ -57,7 +57,7 @@ def sell(q, s): # Returns nothing, makes call to sell stock
         time_in_force='gtc'
     )
 
-symb = "TSLA" # Ticker of stock you want to trade
+symb = "ETHUSD" # Ticker of stock you want to trade
 pos_held = False
 count = 0
  # buy(1, symb)
