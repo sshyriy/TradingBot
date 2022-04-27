@@ -31,7 +31,7 @@ def get_data():
     # Returns a an numpy array of the closing prices of the past 5 minutes
     time_now = datetime.now(tz=UTC)
     time_5_mins = time_now - timedelta(minutes=6)
-    bar_iter = api.get_crypto_bars_iter(symb, tradeapi.TimeFrame.Minute, time_5_mins.isoformat(), time_now.isoformat(),limit = 5)
+    bar_iter = api.get_crypto_bars_iter(symb, tradeapi.TimeFrame.Minute, time_5_mins.isoformat(), time_now.isoformat(),limit = 5, exchanges="CBSE")
     close_list = []
     for bar in bar_iter:
         close_list.append(bar.c)
