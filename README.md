@@ -6,3 +6,17 @@ Strategies that will be used:
 
 * Doji Candle
 * 8/21 EMA
+
+# Prerequisites and dependencies
+## To run the code simply pull the repo and install the following libraries:
+```
+pip install alpaca_trade_api
+pip install flask
+pip install flask_apscheduler
+```
+## Then run the flask app program
+```
+python trader.py
+```
+
+### Note: The demo was made with an alpaca preminium market data subscription that allowed for real-time data. The subscription has since been cancelled and now the current algorithmn runs with a 15 min market data delay as per the free tier of alpaca. 
