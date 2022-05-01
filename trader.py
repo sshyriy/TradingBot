@@ -30,8 +30,10 @@ UTC = pytz.timezone('UTC')
 def get_data():
     # Returns a an numpy array of the closing prices of the past 5 minutes
     time_now = datetime.now(tz=UTC)
-    time_5_mins = time_now - timedelta(minutes=6)
-    bar_iter = api.get_bars_iter(symb, tradeapi.TimeFrame.Minute, time_5_mins.isoformat(), time_now.isoformat(),limit = 5)
+    # time_5_mins = time_now - timedelta(minutes=6)
+    time_15_mins = time_now - timedelta(minutes=15)
+    time_20_mins = time_now - timedelta(minutes=20)
+    bar_iter = api.get_bars_iter(symb, tradeapi.TimeFrame.Minute, time_20_mins.isoformat(), time_15_mins.isoformat(),limit = 5)
     close_list = []
     for bar in bar_iter:
         close_list.append(bar.c)
